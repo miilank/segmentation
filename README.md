@@ -140,15 +140,15 @@ Na slici image_7 je eksperimentisano:
 <br>
 Kernel(3,3)
 <br>
-![alt text](pictures/{F6B92BF0-A48E-4DAD-9630-A7F37D8010DC}.png)
+![alt text](docs/images/{F6B92BF0-A48E-4DAD-9630-A7F37D8010DC}.png)
 <br>
 Kernel(5,5)
 <br>
-![alt text](pictures/{C0E8558F-F74A-48B5-9154-49182A113A39}.png)
+![alt text](docs/images/{C0E8558F-F74A-48B5-9154-49182A113A39}.png)
 <br>
 Kernel(7,7)
 <br>
-![alt text](pictures/{B74B0562-E0DC-4727-84B4-720D80683758}.png)
+![alt text](docs/images/{B74B0562-E0DC-4727-84B4-720D80683758}.png)
 
 
 **Kernel**: mala matrica cije jedinice cine oblik elipse(za 3x3 je to krstic) (oblik i veličina okoline) koja klizi preko maske i određuje koje susjedne piksele morfološka operacija gleda. U praksi se mijenjaju samo ivice bijelih mrlja.
