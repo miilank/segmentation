@@ -150,6 +150,17 @@ Kernel(7,7)
 <br>
 ![alt text](pictures/{B74B0562-E0DC-4727-84B4-720D80683758}.png)
 
+
+**Kernel**: mala matrica cije jedinice cine oblik elipse(za 3x3 je to krstic) (oblik i veličina okoline) koja klizi preko maske i određuje koje susjedne piksele morfološka operacija gleda. U praksi se mijenjaju samo ivice bijelih mrlja.
+
+**Erozija**: Uzima crne piksele oko bijelih mrlja i preklapa elipsu preko njih, tako da sto ta elipsa pokrije, to postaje crno
+
+**Dilacija**: Uzima bijele piksele sa ivice bijelih mrlja i preklapa elipsu preko njih, tako da sto ta elipsa prekrije, to postaje bijelo 
+
+**Otvaranje**: erozija, pa dilacija. Uklanja objekte manje od kernela (šum).
+
+**Zatvaranje**: dilacija, pa erozija. Popunjava praznine manje od kernela (spaja dijelove).
+
 ---
 
 Da bismo klasifikovali, pokrenucemo program nad nekoliko slika i zapisati povrsine, zatim gledati pragove i vidjeti gdje koji objekat pripada(sum, banane, grozdovi, novcici).
@@ -177,6 +188,12 @@ Posmatranjem objekata: banana je dugacka i uska, grozd je zbijen, novcic je okru
 U dokumentaciji sa vjezbi (Contour Properties) sam potrazio obiljezja koja mjere te razlike:
 - aspect ratio (odnos duze i krace stranice) - razlikuje izduzeno (banana) od zbijenog (grozd)
 - solidity (povrsina / povrsina konveksnog omotaca - convexHull) - razlikuje pun oblik (novcic npr) od nepravilnog (lisce). Solidity bi trebalo da bude koliki dio prostora unutar poligona(sastavljenog od najisturenijih tacaka objekta - to je povrsina konveksnog omotaca) je ispunjen od strane tog istog objekta(njegove povrsine). Kod novcica se konveksni omotac savrseno priljubi, jer je pun krug, pa kad se podijeli dobije se 1, kod grozda je nesto malo srednje jer je zbijen, banana je isto srednja, a lisce je malo, jer je mnogo krakato.
+
+**Aspect ratio**: odnos duže i kraće stranice najmanjeg rotiranog pravougaonika oko objekta. Opseg je [1, ∞), a veća vrijednost znači izduženiji objekat.
+
+**Konveksni omotač**: najmanji konveksni poligon koji obuhvata objekat.
+
+**Solidity**: površina objekta podijeljena površinom konveksnog omotača. Opseg je [0, 1], a vrijednost bliža 1 znači puniji oblik.
 
 Dakle sve sa svacim poredim i imam sta treba da koristim u odredjenim situacijama, sto je generalno malo nezgodno.
 
